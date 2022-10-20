@@ -9,16 +9,15 @@ export class SummonerService {
 
   constructor(private httpClient: HttpClient) { }
 
-  API_KEY = "RGAPI-f63618a4-4bbc-4d50-88a8-e853e27c60c8";
+  API_KEY = ""; // Need to get API KEY
 
-  APICallString =
-      "https://euw1.api.riotgames.com/lol/summoner/v4/summoners/by-name/bowedvenus89" +
+
+  getSummoner(summonerName: string | undefined) {
+  const APICallString =
+      "https://euw1.api.riotgames.com/lol/summoner/v4/summoners/by-name/" +
+       summonerName +
       "?api_key=" +
       this.API_KEY;
-
-  getSummoner() {
-    return this.httpClient.get(this.APICallString).subscribe(result => {
-      return result;
-    });
+    return this.httpClient.get(APICallString)
   }
 }

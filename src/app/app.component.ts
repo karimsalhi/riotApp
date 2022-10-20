@@ -1,6 +1,5 @@
 import { Component } from '@angular/core';
 import { SummonerService } from './services/summoner.service';
-import { HttpClient } from '@angular/common/http';
 
 @Component({
   selector: 'app-root',
@@ -10,7 +9,17 @@ import { HttpClient } from '@angular/common/http';
 export class AppComponent {
   constructor(private summoner: SummonerService) {}
 
+  searchText: string | undefined;
+  posts: any;
+
+  handleChange(event: any) {
+    this.searchText = event.target.value;
+  }
+
   testApi() {
-    console.log(this.summoner.getSummoner());
+    this.summoner.getSummoner(this.searchText).subscribe(
+      (res) => this.posts = res,
+      (e) => this.posts = e 
+      );
   }
 }
