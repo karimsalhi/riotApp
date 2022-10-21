@@ -30,4 +30,14 @@ export class SummonerService {
       this.API_KEY;
     return this.httpClient.get<SummonerName>(APICallString)
   }
+
+  getSummonerRank(summonerId: string) {
+  const APICallString =
+      "https://euw1.api.riotgames.com/lol/league/v4/entries/by-summoner/" +
+       summonerId +
+      "?api_key=" +
+      this.API_KEY;
+    return this.httpClient.get(APICallString)
+
+  }
 }
