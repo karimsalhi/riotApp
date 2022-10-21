@@ -1,0 +1,14 @@
+<div>
+  <h5>League of legend searcher</h5>
+  <form [formGroup]="formNameSummoners" (ngSubmit)="onSubmit()">
+    <input type="text" formControlName="name" id="nameSummoner" placeholder="Entrez votre nom"/>
+    <button type="submit" [disabled]="!formNameSummoners.valid" >Search</button>
+  </form>
+
+</div>
+<div>
+  <div *ngIf="summonerName">
+    <p>Level {{this.summonerName.summonerLevel}}</p>
+  </div>
+  <p *ngIf="summonerName == undefined">We dont have data</p>
+</div>
