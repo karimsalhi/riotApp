@@ -1,14 +1,4 @@
-<app-nav-bar></app-nav-bar>
-<div>
-    <h5>League of legend searcher</h5>
-    <input type="text" (change)="handleChange($event)" />
 
-    <button (click)="testApi()">Search</button>
-</div>
-<div>
-    <div *ngIf="posts">
-        <p>{{posts.name}}</p>
-        <p>Level {{posts.summonerLevel}}</p>
-    </div>
-    <p *ngIf="posts == undefined">We dont have data</p>
-</div>
+<app-nav-bar></app-nav-bar>
+
+<app-search></app-search>
