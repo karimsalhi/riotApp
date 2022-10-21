@@ -17,7 +17,7 @@ import { SummonerRankCardComponent } from './components/summoner-rank-card/summo
   declarations: [
     AppComponent,
     SearchComponent,
-    
+    NavBarComponent
   ],
   imports: [
     BrowserModule,
@@ -27,7 +27,7 @@ import { SummonerRankCardComponent } from './components/summoner-rank-card/summo
   ],
   providers: [SummonerService],
   bootstrap: [
-    AppComponent, 
+    AppComponent,
     NavBarComponent,
     SummonerRankCardComponent
   ]
