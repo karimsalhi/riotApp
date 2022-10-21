@@ -17,9 +17,16 @@ export class AppComponent {
   }
 
   testApi() {
-    this.summoner.getSummoner(this.searchText).subscribe(
-      (res) => this.posts = res,
-      (e) => this.posts = e 
-      );
+    this.summoner.getSummoner(this.searchText).subscribe({
+        next: (res) => {
+          this.posts = res
+          console.log(res);
+        },
+        error: (e) => {
+          this.posts = e
+          console.error(e)
+        },
+        complete: () => console.log('DONE!')
+      });
   }
 }
