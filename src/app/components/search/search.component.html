@@ -1,9 +1,12 @@
-<div>
-  <h5>League of legend searcher</h5>
-  <form [formGroup]="formNameSummoners" (ngSubmit)="onSubmit()">
-    <input type="text" formControlName="name" id="nameSummoner" placeholder="Entrez votre nom"/>
-    <button type="submit" [disabled]="!formNameSummoners.valid" >Search</button>
-  </form>
+<div class="container">
+
+  <div class="row justify-content-center">
+    <div class="col-6">
+      <form class="text-center" [formGroup]="formNameSummoners" (ngSubmit)="onSubmit()">
+        <input class="form-control mb-3" type="text" formControlName="name" id="nameSummoner" placeholder="Search summoner"/>
+      </form>
+    </div>
+  </div>
 
 </div>
 <div>
