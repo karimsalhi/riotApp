@@ -1,16 +1,7 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
-
-class SummonerName {
-  id: string = "";
-  accountId: string ="";
-  name:string = "";
-  profileIconId: number = 0;
-  puuid: string = "";
-  revisionDate: number = 0;
-  summonerLevel: number = 0;
-
-}
+import {HttpClient} from '@angular/common/http';
+import {SummonerByName} from "../models/summoner-by-name.model";
+import {environment} from "../../environments/environment";
 
 @Injectable({
   providedIn: 'root'
@@ -19,25 +10,14 @@ export class SummonerService {
 
   constructor(private httpClient: HttpClient) { }
 
-  API_KEY = "RGAPI-342f2552-c0a3-4530-a592-51006049a6fd"; // Need to get API KEY
-
-
-  getSummoner(summonerName: string) {
-  const APICallString =
-      "https://euw1.api.riotgames.com/lol/summoner/v4/summoners/by-name/" +
-       summonerName +
-      "?api_key=" +
-      this.API_KEY;
-    return this.httpClient.get<SummonerName>(APICallString)
+  getSummonerByName(summonerName: string) {
+    //TODO Replace param api key by header api key
+    const requestSummonerByName : string = environment.apiBaseUrl + "lol/summoner/v4/summoners/by-name/" + summonerName + '?api_key=' + environment.apiKey;
+    return this.httpClient.get<SummonerByName>(requestSummonerByName)
   }
 
   getSummonerRank(summonerId: string) {
-  const APICallString =
-      "https://euw1.api.riotgames.com/lol/league/v4/entries/by-summoner/" +
-       summonerId +
-      "?api_key=" +
-      this.API_KEY;
+    const APICallString = environment.apiBaseUrl + "lol/league/v4/entries/by-summoner/" + summonerId + "?api_key=" + environment.apiKey;
     return this.httpClient.get(APICallString)
-
   }
 }
