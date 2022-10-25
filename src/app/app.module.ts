@@ -10,14 +10,15 @@ import { SearchComponent } from './components/search/search.component';
 import {ReactiveFormsModule} from "@angular/forms";
 
 import { NavBarComponent } from './components/nav-bar/nav-bar.component';
-import { SummonerRankCardComponent } from './components/summoner-rank-card/summoner-rank-card.component';
+import {SummonerRankCardComponent} from "./components/summoner-rank-card/summoner-rank-card.component";
 
 
 @NgModule({
   declarations: [
     AppComponent,
     SearchComponent,
-    NavBarComponent
+    NavBarComponent,
+    SummonerRankCardComponent
   ],
   imports: [
     BrowserModule,
@@ -27,9 +28,7 @@ import { SummonerRankCardComponent } from './components/summoner-rank-card/summo
   ],
   providers: [SummonerService],
   bootstrap: [
-    AppComponent,
-    NavBarComponent,
-    SummonerRankCardComponent
+    AppComponent
   ]
 })
 export class AppModule { }

@@ -10,8 +10,8 @@
 
 </div>
 <div>
-  <div *ngIf="summonerName">
-    <p>Level {{this.summonerName.summonerLevel}}</p>
+  <div *ngIf="summonerByName">
+    <p>Level {{this.summonerByName.summonerLevel}}</p>
   </div>
-  <p *ngIf="summonerName == undefined">We dont have data</p>
+  <p *ngIf=" summonerByName == undefined">We dont have data</p>
 </div>
