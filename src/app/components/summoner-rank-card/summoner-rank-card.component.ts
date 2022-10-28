@@ -1,4 +1,5 @@
 import { Component, OnInit, Input } from '@angular/core';
+import { SummonerService } from 'src/app/services/summoner.service';
 
 @Component({
   selector: 'app-summoner-rank-card',
@@ -6,13 +7,15 @@ import { Component, OnInit, Input } from '@angular/core';
   styleUrls: ['./summoner-rank-card.component.scss']
 })
 export class SummonerRankCardComponent implements OnInit {
-  @Input() rank: string = '';
-  logo: string = '../../../assets/img/PlatinumLogo.png';
 
-  constructor() { }
+  constructor(private summonerService: SummonerService) {
+  }
+
+  @Input() tier: string = '';
+  @Input() rank: string = '';
+
 
   ngOnInit(): void {
-    console.log(this.rank);
   }
 
 }

@@ -6,4 +6,6 @@ export class SummonerByName {
   puuid: string = "";
   revisionDate: number = 0;
   summonerLevel: number = 0;
+  tier: string = "";
+  rank: string = "";
 }
