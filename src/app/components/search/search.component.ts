@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import {SummonerService} from "../../services/summoner.service";
 import {FormControl, FormGroup, Validators} from "@angular/forms";
 import {SummonerByName} from "../../models/summoner-by-name.model";
+import { switchMap, tap } from 'rxjs';
 
 @Component({
   selector: 'app-search',
@@ -22,18 +23,18 @@ export class SearchComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  onSubmit() {
+  onSubmit()  {
     const name : string = this.formNameSummoners.value.name || ""
-    this.summonerService.getSummonerByName(name).subscribe({
-        next: (res: SummonerByName) => {
-          this.summonerByName = res
-          console.log(this.summonerByName);
-        },
-        error: (e) => {
-          this.summonerByName = new SummonerByName();
-          console.error(e)
-        },
-        complete: () => console.log('DONE!')
-    })
+    this.summonerService.getSummonerByName(name).pipe(
+      tap((res) => this.summonerByName = res),
+      switchMap((res) => 
+        this.summonerService.getSummonerRank(res.id))
+        ).subscribe({
+          next: (res: any) => {
+            this.summonerByName.tier = res[0].tier;
+            this.summonerByName.rank = res[0].rank;
+            console.log("HELLO")
+          }
+        })
   }
 }
