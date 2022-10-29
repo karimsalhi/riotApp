@@ -1,5 +1,7 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { SummonerService } from 'src/app/services/summoner.service';
+import { ActivatedRoute, ParamMap } from '@angular/router';
+import { SearchService } from '../../services/search.service';
 
 @Component({
   selector: 'app-summoner-rank-card',
@@ -8,14 +10,18 @@ import { SummonerService } from 'src/app/services/summoner.service';
 })
 export class SummonerRankCardComponent implements OnInit {
 
-  constructor(private summonerService: SummonerService) {
+  constructor(
+    private searchService: SearchService,
+  ) {
   }
 
-  @Input() tier: string = '';
-  @Input() rank: string = '';
+  @Input() tier: string | null = '';
+  @Input() rank: string | null = '';
 
 
-  ngOnInit(): void {
+  ngOnInit() {
+    this.tier = this.searchService.summonerByName.tier;
+    this.rank = this.searchService.summonerByName.rank;
   }
 
 }

@@ -10,9 +10,8 @@
 
 </div>
 <div>
-  <div *ngIf="summonerByName.name != ''">
-    <app-summoner-rank-card tier="{{this.summonerByName.tier}}" rank="{{this.summonerByName.rank}}"></app-summoner-rank-card>
-    <p>Level {{this.summonerByName.summonerLevel}}</p>
+  <div *ngIf="this.summonerByName.name != ''">
+    <router-outlet></router-outlet>
   </div>
   <p *ngIf=" summonerByName == undefined">We dont have data</p>
 </div>
