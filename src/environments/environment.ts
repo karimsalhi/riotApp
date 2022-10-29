@@ -5,7 +5,8 @@
 export const environment = {
   production: false,
   apiBaseUrl : 'https://euw1.api.riotgames.com/',
-  apiKey : ""
+  apiMatchBaseUrl : 'https://europe.api.riotgames.com/',
+  apiKey : "RGAPI-f5dedef2-51e5-4912-b179-fc2c85a6c246"
 };
 
 /*

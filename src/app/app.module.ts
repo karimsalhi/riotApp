@@ -14,6 +14,7 @@ import { SummonerRankCardComponent } from './components/summoner-rank-card/summo
 import { AppRoutingModule } from './app-routing.module';
 import { ProfileComponent } from './pages/profile/profile.component';
 import { HomeComponent } from './pages/home/home.component';
+import { MatchComponent } from './components/match/match.component';
 
 
 @NgModule({
@@ -24,6 +25,7 @@ import { HomeComponent } from './pages/home/home.component';
     SummonerRankCardComponent,
     ProfileComponent,
     HomeComponent,
+    MatchComponent,
   ],
   imports: [
     BrowserModule,

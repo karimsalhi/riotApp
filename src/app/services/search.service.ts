@@ -12,5 +12,4 @@ export class SearchService {
   updateSummonerByName(summonerByName: SummonerByName) {
     this.summonerByName = summonerByName;
   }
-
 }
