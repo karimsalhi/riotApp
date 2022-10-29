@@ -10,7 +10,7 @@ import { SearchComponent } from './components/search/search.component';
 import {ReactiveFormsModule} from "@angular/forms";
 
 import { NavBarComponent } from './components/nav-bar/nav-bar.component';
-import {SummonerRankCardComponent} from "./components/summoner-rank-card/summoner-rank-card.component";
+import { SummonerRankCardComponent } from './components/summoner-rank-card/summoner-rank-card.component';
 import { AppRoutingModule } from './app-routing.module';
 import { ProfileComponent } from './pages/profile/profile.component';
 import { HomeComponent } from './pages/home/home.component';

@@ -11,9 +11,7 @@ import { SearchService } from '../../services/search.service';
 export class SummonerRankCardComponent implements OnInit {
 
   constructor(
-    private summonerService: SummonerService,
-    private search: SearchService,
-    private route: ActivatedRoute
+    private searchService: SearchService,
   ) {
   }
 
@@ -22,8 +20,8 @@ export class SummonerRankCardComponent implements OnInit {
 
 
   ngOnInit() {
-    this.tier = this.search.summonerByName.tier;
-    this.rank = this.search.summonerByName.rank;
+    this.tier = this.searchService.summonerByName.tier;
+    this.rank = this.searchService.summonerByName.rank;
   }
 
 }
